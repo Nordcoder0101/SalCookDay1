@@ -8,10 +8,9 @@ function Store(location, minCust, maxCust, avgCookiePerCust) {
   this.avgCookiePerHour = 0;
   this.hourlySales = [];
   this.totalSalesPerStore = 0;
+  this.openHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 };
 
-
-var openHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 
 
 var firstPike = new Store('1st and Pike', 23, 65, 6.3);
@@ -38,7 +37,7 @@ function findAvgCookiePerHour() { //Will use rng() and average cookie per custom
 
 function findHourlySales() {//assign a number of sales per hour the store is open
   for (var i = 0; i < arrStores.length; i++) { //loop through objects
-    for (var j = 0; j < openHours.length; j++) { //loop through total hours open
+    for (var j = 0; j < arrStores[i].openHours.length; j++) { //loop through total hours open
       findAvgCookiePerHour();
       arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
     }
@@ -58,5 +57,28 @@ function findTotalSalesPerStore() {
   return arrStores;
 }
 
+function buildingTable() {
+
+
+
+  for (var i = 0; i < arrStores.length; i++) {
+    console.log(arrStores[i].location);
+    var table = document.getElementById('store_table');
+    var row = document.createElement('tr');
+    table.appendChild(row);
+    row.innerHTML = arrStores[i].location;
+    for (var j = 0; j < arrStores[i].hourlySales.length; j++) {
+      var cell = document.createElement('td');
+      var hour = document.createElement('tr');
+      table.appendChild(hour);
+      hour.innerHTML = arrStores[i].openHours[j];
+      table.appendChild(cell);
+      console.log(arrStores[i].hourlySales[j]);
+      cell.innerHTML = arrStores[i].hourlySales[j];
+    }
+  }
+};
+
 findHourlySales();
 findTotalSalesPerStore();
+buildingTable();
