@@ -45,7 +45,7 @@ function findHourlySales() {//assign a number of sales per hour the store is ope
   return arrStores;
 }
 
-findTotalSalesPerStore = function() { //function to add the total number of sales made at each store in a day.
+function findTotalSalesPerStore() { //function to add the total number of sales made at each store in a day.
   for (var i = 0; i < arrStores.length; i++) {
     var totalSalesPerStore = arrStores[i].hourlySales.reduce(function(accumulator, currentValue) {
       return accumulator + currentValue;
