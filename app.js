@@ -51,34 +51,55 @@ var alki = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
+  rng: function(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+  findAvgCookiePerHour: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+      arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+    }
+    return arrStores;
+  },
+  findHourlySales: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      for (var j = 0; j < openHours.length; j++) {
+        findAvgCookiePerHour();
+        arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+      }
+    }
+    console.log(arrStores);
+    return arrStores;
+  }
 };
 
 var arrStores = [firstPike, SeaTac, seattleCenter, capitalHill, alki]; //storing my store data into an array
+
 
 function rng(min, max) { //function to find a random number
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-function findAvgCookiePerHour() {
-  for (var i = 0; i < arrStores.length; i++) {
-    var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
-    // console.log(randomNumber);
-    arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
-  }
-  return arrStores;
-};
-
-function findHourlySales() {
-  for (var i = 0; i < arrStores.length; i++) {
-    for (var j = 0; j < openHours.length; j++) {
-      findAvgCookiePerHour();
-      arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
-    }
-  }
-  console.log(arrStores);
-  return arrStores;
-}
-
-var storeNames = document.getElementsByClassName ('store_name');
+// function findAvgCookiePerHour() {
+//   for (var i = 0; i < arrStores.length; i++) {
+//     var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+//     // console.log(randomNumber);
+//     arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+//   }
+//   return arrStores;
+// };
+//
+// function findHourlySales() {
+//   for (var i = 0; i < arrStores.length; i++) {
+//     for (var j = 0; j < openHours.length; j++) {
+//       findAvgCookiePerHour();
+//       arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+//     }
+//   }
+//   console.log(arrStores);
+//   return arrStores;
+// }
+//
+// var storeNames = document.getElementsByClassName ('store_name');
 
 findHourlySales();
