@@ -11,7 +11,28 @@ var firstPike = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
+  rng: function(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+  findAvgCookiePerHour: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+      arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+    }
+    return arrStores;
+  },
+  findHourlySales: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      for (var j = 0; j < openHours.length; j++) {
+        findAvgCookiePerHour();
+        arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+      }
+    }
+    console.log(arrStores);
+    return arrStores;
+  }
 };
+
 
 var SeaTac = {
   location: 'SeaTac Airport',
@@ -21,7 +42,28 @@ var SeaTac = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
+  rng: function(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+  findAvgCookiePerHour: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+      arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+    }
+    return arrStores;
+  },
+  findHourlySales: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      for (var j = 0; j < openHours.length; j++) {
+        findAvgCookiePerHour();
+        arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+      }
+    }
+    console.log(arrStores);
+    return arrStores;
+  }
 };
+
 
 var seattleCenter = {
   location: 'Seattle Center',
@@ -31,7 +73,28 @@ var seattleCenter = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
-};
+  rng: function(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+  findAvgCookiePerHour: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+      arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+    }
+    return arrStores;
+  },
+  findHourlySales: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      for (var j = 0; j < openHours.length; j++) {
+        findAvgCookiePerHour();
+        arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+      }
+    }
+    console.log(arrStores);
+    return arrStores;
+  }
+  };
+
 
 var capitalHill = {
   location: 'Capital Hill',
@@ -41,7 +104,29 @@ var capitalHill = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
+  rng: function(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+  findAvgCookiePerHour: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
+      arrStores[i].avgCookiePerHour = randomNumber * arrStores[i].avgCookiePerCust;
+    }
+    return arrStores;
+  },
+  findHourlySales: function() {
+    for (var i = 0; i < arrStores.length; i++) {
+      for (var j = 0; j < openHours.length; j++) {
+        findAvgCookiePerHour();
+        arrStores[i].hourlySales[j] = Math.ceil(arrStores[i].avgCookiePerHour);
+      }
+    }
+    console.log(arrStores);
+    return arrStores;
+  }
 };
+
+
 
 var alki = {
   location: 'Alki',
