@@ -1,5 +1,6 @@
 'use strict';
 
+
 var arrStores = []; //storing my store data into an array
 var openHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM']; //the hours each store is open
 
@@ -45,6 +46,7 @@ Store.prototype.buildTable = function() {
   var tableEl = document.getElementById('store_table');
   tableEl.appendChild(buildTableHead());
   tableEl.appendChild(buildTableBody());
+
 };
 
 //instantiating my objects with hard data
@@ -54,6 +56,7 @@ var seaTac = new Store('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Store('Seattle Center', 11, 23, 3.7);
 var capitalHill = new Store('Capital Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 20, 38, 4.6);
+
 
 
 
@@ -97,6 +100,4 @@ function buildTableRow(yAxisHeader, data, yAxisFooter) {
 
   return trEl;
 }
-//fire off my functions in order
 
-//buildingTable();
