@@ -136,9 +136,6 @@ var alki = {
   avgCookiePerHour: 0,
   totalCookie: 0,
   hourlySales: [],
-  rng: function(min, max){
-    return Math.floor(Math.random() * (max - min)) + min;
-  },
   findAvgCookiePerHour: function() {
     for (var i = 0; i < arrStores.length; i++) {
       var randomNumber = rng(arrStores[i].maxCust, arrStores[i].minCust);
